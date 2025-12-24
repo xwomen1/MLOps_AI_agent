@@ -8,9 +8,11 @@ Built with a **Next.js frontend** and **Python serverless backend**, this projec
 
 ## 📺 Video Demo
 
-[![Watch the Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
 
-> *Tip: To display a local video, drag and drop your MP4 file here when editing on GitHub, or replace the link above with your YouTube/Loom URL.*
+
+
+https://github.com/user-attachments/assets/64f5c257-7a30-4973-936d-6bdefc153fc4
+
 
 ---
 
