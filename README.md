@@ -43,7 +43,7 @@ https://github.com/user-attachments/assets/64f5c257-7a30-4973-936d-6bdefc153fc4
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/username/devops-ai.git](https://github.com/username/devops-ai.git)
+git clone https://github.com/xwomen1/MLOps_AI_agent.git
 cd devops-ai
 ```
 2. Install Dependencies
@@ -64,7 +64,7 @@ CLERK_JWKS_URL=your_clerk_jwks_url
 ```bash
 vercel --prod
 ```
-💬 Key Features
+## 💬 Key Features
 Live AI Chat: Real-time streaming for troubleshooting deployment issues and cloud optimization.
 
 Professional Summaries: Automated log analysis with actionable insights.
@@ -75,7 +75,7 @@ Multi-Cloud Guidance: Deployment playbooks for AWS, GCP, and Azure.
 
 Scalable Architecture: Fully serverless and observable via MCP.
 
-📚 Learning & Academic Use
+## 📚 Learning & Academic Use
 Explore the intersection of AI and Infrastructure:
 
 RAG + AI Agents: Learn how to bridge the gap between static docs and live logs.
@@ -84,9 +84,9 @@ Serverless Python: Master SSE (Server-Sent Events) for real-time AI interactions
 
 Multi-Cloud MLOps: Understand how to manage AI workloads across different cloud ecosystems.
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/xwomen1/MLOps_AI_agent/edit/master/LICENSE.md) file for the full text.
 
-⭐ Support
+## ⭐ Support
 If you find this project useful, please give it a ⭐! Feedback and issues are always welcome.
 
