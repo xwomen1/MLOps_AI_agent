@@ -1,0 +1,13 @@
+# Python files - not needed for Next.js deployment
+requirements.txt
+api/
+*.py
+Dockerfile
+
+# Build outputs
+out/
+.next/
+node_modules/
+
+# Environment files
+.env*
