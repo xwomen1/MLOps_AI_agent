@@ -1,60 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# 🌐 DevOps AI Cloud Assistant
 
-## Getting Started
+**DevOps AI Cloud Assistant** is a full-stack AI platform designed to help DevOps engineers and cloud practitioners analyze deployment logs, optimize infrastructure, and interact with AI in real-time. 
 
-First, run the development server:
+Built with a **Next.js frontend** and **Python serverless backend**, this project demonstrates how to deploy AI solutions on **AWS, GCP, Azure, and Vercel** using **MLOps, Bedrock, SageMaker, RAG, and MCP** principles.
+
+---
+
+## 📺 Video Demo
+
+[![Watch the Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
+> *Tip: To display a local video, drag and drop your MP4 file here when editing on GitHub, or replace the link above with your YouTube/Loom URL.*
+
+---
+
+## 🎯 Project Goals
+
+* **AI-Driven Analytics:** Apply LLMs to parse complex deployment logs and cloud configurations.
+* **RAG Integration:** Implement Retrieval-Augmented Generation for fetching context from internal docs or wikis.
+* **Automated Response:** Use Agents & MCP (Model Context Protocol) for incident response and remediation.
+* **MLOps Best Practices:** Demonstrate model deployment, inference, and observability in a multi-cloud environment.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technologies |
+| :--- | :--- |
+| **Frontend** | Next.js 15+, Tailwind CSS, Clerk (Authentication) |
+| **Backend** | Python (FastAPI) Serverless on Vercel |
+| **AI Models** | Gemini Pro / OpenAI GPT-4o |
+| **Streaming** | Server-Sent Events (SSE) for real-time chat |
+| **Cloud (AWS)** | SageMaker, Bedrock, Lambda, CloudWatch |
+| **Cloud (GCP)** | Vertex AI, Cloud Run, Cloud Logging |
+| **Cloud (Azure)** | ML Studio, Azure Functions |
+
+---
+
+## ⚡ Quick Start
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/username/devops-ai.git](https://github.com/username/devops-ai.git)
+cd devops-ai
+
+2. Install Dependencies
+Bash
+
+npm install
+3. Configure Environment Variables
+Create a .env.local file in the root directory:
+
+Code snippet
+```bash
+LLM_PROVIDER=gemini
+GEMINI_API_KEY=your_gemini_api_key
+OPENAI_API_KEY=your_openai_api_key
+CLERK_JWKS_URL=your_clerk_jwks_url
+4. Deploy to Vercel
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+vercel --prod
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+💬 Key Features
+Live AI Chat: Real-time streaming for troubleshooting deployment issues and cloud optimization.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Professional Summaries: Automated log analysis with actionable insights.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Draft Emails: Generate professional, stakeholder-ready emails from AI-detected incidents.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+Multi-Cloud Guidance: Deployment playbooks for AWS, GCP, and Azure.
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Scalable Architecture: Fully serverless and observable via MCP.
 
-## Learn More
+📚 Learning & Academic Use
+Explore the intersection of AI and Infrastructure:
 
-To learn more about Next.js, take a look at the following resources:
+RAG + AI Agents: Learn how to bridge the gap between static docs and live logs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Serverless Python: Master SSE (Server-Sent Events) for real-time AI interactions.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Multi-Cloud MLOps: Understand how to manage AI workloads across different cloud ecosystems.
 
-## Deploy on Vercel
+⭐ Star & Contribute
+If you find this project useful, please give it a ⭐! Pull requests, issues, and feedback are always welcome.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
-
-## Note about Vercel rewrites and `/api`
-
-If you add a top-level `api/` directory (for example to deploy a Python ASGI app) and also have a Next.js app with `pages/`, avoid adding a global rewrite such as:
-
-```json
-{
-	"rewrites": [
-		{ "source": "/api/:path*", "destination": "/api" }
-	]
-}
-```
-
-That rewrite can cause routing/mount mismatches in production that result in a `404 Not Found` at the site root. Prefer one of these options instead:
-
-- Remove the `vercel.json` rewrite so Vercel uses Next.js routing for `/` and `pages/api/*` for serverless API routes.
-- If you need a single mounted backend, place it in `api/index.py` and do not rewrite `/api/:path*` to `/api` — the platform will route `/api/*` to that file automatically.
-- Use explicit rewrites that point to a specific function file (e.g. `"destination": "/api/index.py"`) if needed.
-
-If you saw a 404 at `/` but localhost was fine, removing the rewrite and redeploying typically resolves it.
+License: MIT License
