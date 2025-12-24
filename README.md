@@ -43,25 +43,25 @@ Built with a **Next.js frontend** and **Python serverless backend**, this projec
 ```bash
 git clone [https://github.com/username/devops-ai.git](https://github.com/username/devops-ai.git)
 cd devops-ai
-
+```
 2. Install Dependencies
-Bash
-
+```bash
 npm install
+``` 
 3. Configure Environment Variables
 Create a .env.local file in the root directory:
-
 Code snippet
 ```bash
 LLM_PROVIDER=gemini
 GEMINI_API_KEY=your_gemini_api_key
 OPENAI_API_KEY=your_openai_api_key
 CLERK_JWKS_URL=your_clerk_jwks_url
+```
 4. Deploy to Vercel
 
 ```bash
 vercel --prod
-
+```
 💬 Key Features
 Live AI Chat: Real-time streaming for troubleshooting deployment issues and cloud optimization.
 
@@ -82,7 +82,9 @@ Serverless Python: Master SSE (Server-Sent Events) for real-time AI interactions
 
 Multi-Cloud MLOps: Understand how to manage AI workloads across different cloud ecosystems.
 
-⭐ Star & Contribute
-If you find this project useful, please give it a ⭐! Pull requests, issues, and feedback are always welcome.
+📄 License
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/xwomen1/MLOps_AI_agent/edit/master/LICENSE.md) file for the full text.
 
-License: MIT License
+⭐ Support
+If you find this project useful, please give it a ⭐! Feedback and issues are always welcome.
+
