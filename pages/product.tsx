@@ -9,13 +9,13 @@ import remarkBreaks from 'remark-breaks';
 import { fetchEventSource } from '@microsoft/fetch-event-source';
 import { Protect, PricingTable, UserButton } from '@clerk/nextjs';
 
-function ConsultationForm() {
+function DeploymentAnalyzer() {
     const { getToken } = useAuth();
 
     // Form state
-    const [patientName, setPatientName] = useState('');
-    const [visitDate, setVisitDate] = useState<Date | null>(new Date());
-    const [notes, setNotes] = useState('');
+    const [projectName, setProjectName] = useState('');
+    const [deploymentDate, setDeploymentDate] = useState<Date | null>(new Date());
+    const [logs, setLogs] = useState('');
 
     // Streaming state
     const [output, setOutput] = useState('');
@@ -36,7 +36,7 @@ function ConsultationForm() {
         const controller = new AbortController();
         let buffer = '';
 
-        await fetchEventSource('/api/consultation', {
+        await fetchEventSource('/api', {
             signal: controller.signal,
             method: 'POST',
             headers: {
@@ -44,9 +44,9 @@ function ConsultationForm() {
                 Authorization: `Bearer ${jwt}`,
             },
             body: JSON.stringify({
-                patient_name: patientName,
-                date_of_visit: visitDate?.toISOString().slice(0, 10),
-                notes,
+                patient_name: projectName,
+                date_of_visit: deploymentDate?.toISOString().slice(0, 10),
+                notes: logs,
             }),
             onmessage(ev) {
                 buffer += ev.data;
@@ -66,67 +66,67 @@ function ConsultationForm() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-3xl">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-8">
-                Consultation Notes
+                Deployment Analysis
             </h1>
 
             <form onSubmit={handleSubmit} className="space-y-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
                 <div className="space-y-2">
-                    <label htmlFor="patient" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Patient Name
+                    <label htmlFor="project" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Project Name
                     </label>
                     <input
-                        id="patient"
+                        id="project"
                         type="text"
                         required
-                        value={patientName}
-                        onChange={(e) => setPatientName(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                        placeholder="Enter patient's full name"
+                        value={projectName}
+                        onChange={(e) => setProjectName(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        placeholder="Enter project or deployment name"
                     />
                 </div>
 
                 <div className="space-y-2">
                     <label htmlFor="date" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Date of Visit
+                        Deployment Date
                     </label>
                     <DatePicker
                         id="date"
-                        selected={visitDate}
-                        onChange={(d: Date | null) => setVisitDate(d)}
+                        selected={deploymentDate}
+                        onChange={(d: Date | null) => setDeploymentDate(d)}
                         dateFormat="yyyy-MM-dd"
                         placeholderText="Select date"
                         required
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                     />
                 </div>
 
                 <div className="space-y-2">
-                    <label htmlFor="notes" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                        Consultation Notes
+                    <label htmlFor="logs" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                        Deployment Logs & Issues
                     </label>
                     <textarea
-                        id="notes"
+                        id="logs"
                         required
                         rows={8}
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-                        placeholder="Enter detailed consultation notes..."
+                        value={logs}
+                        onChange={(e) => setLogs(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
+                        placeholder="Paste deployment logs, errors, or infrastructure details..."
                     />
                 </div>
 
                 <button 
                     type="submit" 
                     disabled={loading}
-                    className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+                    className="w-full bg-green-600 hover:bg-green-700 disabled:bg-green-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
                 >
-                    {loading ? 'Generating Summary...' : 'Generate Summary'}
+                    {loading ? 'Analyzing Deployment...' : 'Analyze Deployment'}
                 </button>
             </form>
 
             {output && (
                 <section className="mt-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-lg p-8">
-                    <div className="markdown-content prose prose-blue dark:prose-invert max-w-none">
+                    <div className="markdown-content prose prose-green dark:prose-invert max-w-none">
                         <ReactMarkdown remarkPlugins={[remarkGfm, remarkBreaks]}>
                             {output}
                         </ReactMarkdown>
@@ -151,11 +151,11 @@ export default function Product() {
                 fallback={
                     <div className="container mx-auto px-4 py-12">
                         <header className="text-center mb-12">
-                            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-                                Healthcare Professional Plan
+                            <h1 className="text-5xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent mb-4">
+                                DevOps & Cloud Professional Plan
                             </h1>
                             <p className="text-gray-600 dark:text-gray-400 text-lg mb-8">
-                                Streamline your patient consultations with AI-powered summaries
+                                AI-powered analysis for deployment logs, infrastructure issues, and cloud optimization
                             </p>
                         </header>
                         <div className="max-w-4xl mx-auto">
@@ -164,7 +164,7 @@ export default function Product() {
                     </div>
                 }
             >
-                <ConsultationForm />
+                <DeploymentAnalyzer />
             </Protect>
         </main>
     );
