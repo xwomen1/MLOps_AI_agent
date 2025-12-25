@@ -2,7 +2,7 @@
 
 **DevOps AI Cloud Assistant** is a full-stack AI platform designed to help DevOps engineers and cloud practitioners analyze deployment logs, optimize infrastructure, and interact with AI in real-time. 
 
-Built with a **Next.js frontend** and **Python serverless backend**, this project demonstrates how to deploy AI solutions on **AWS, GCP, Azure, and Vercel** using **MLOps, Bedrock, SageMaker, RAG, and MCP** principles.
+Built with a **Next.js frontend** and **Python serverless backend**, this project demonstrates how to deploy AI solutions on **AWS, GCP, Azure, and Vercel**.
 
 ---
 
@@ -17,9 +17,6 @@ https://github.com/user-attachments/assets/64f5c257-7a30-4973-936d-6bdefc153fc4
 ---
 
 ## 🎯 Project Goals
-
-* **AI-Driven Analytics:** Apply LLMs to parse complex deployment logs and cloud configurations.
-* **RAG Integration:** Implement Retrieval-Augmented Generation for fetching context from internal docs or wikis.
 * **Automated Response:** Use Agents & MCP (Model Context Protocol) for incident response and remediation.
 * **MLOps Best Practices:** Demonstrate model deployment, inference, and observability in a multi-cloud environment.
 
@@ -73,12 +70,9 @@ Draft Emails: Generate professional, stakeholder-ready emails from AI-detected i
 
 Multi-Cloud Guidance: Deployment playbooks for AWS, GCP, and Azure.
 
-Scalable Architecture: Fully serverless and observable via MCP.
 
 ## 📚 Learning & Academic Use
 Explore the intersection of AI and Infrastructure:
-
-RAG + AI Agents: Learn how to bridge the gap between static docs and live logs.
 
 Serverless Python: Master SSE (Server-Sent Events) for real-time AI interactions.
 
